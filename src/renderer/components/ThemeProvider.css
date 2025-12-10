@@ -1,0 +1,21 @@
+.theme-provider {
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-light {
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.theme-dark {
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.theme-cursor {
+  background-color: transparent;
+  color: var(--text-color);
+}
+

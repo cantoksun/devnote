@@ -1,0 +1,32 @@
+.send-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  outline: none;
+  flex-shrink: 0;
+  -webkit-app-region: no-drag;
+  pointer-events: auto;
+}
+
+.send-button:hover:not(:disabled) {
+  background-color: var(--input-color);
+}
+
+.send-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--border-color);
+}
+

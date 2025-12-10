@@ -1,0 +1,49 @@
+.microphone-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  outline: none;
+  flex-shrink: 0;
+  -webkit-app-region: no-drag;
+  pointer-events: auto;
+}
+
+.microphone-button:hover:not(:disabled) {
+  background-color: var(--input-color);
+}
+
+.microphone-button.active {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  border-color: var(--accent-color);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.microphone-button.active svg {
+  fill: var(--bg-color);
+}
+
+.microphone-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 var(--accent-color);
+    opacity: 0.4;
+  }
+  50% {
+    box-shadow: 0 0 0 8px var(--accent-color);
+    opacity: 0;
+  }
+}
+

@@ -1,0 +1,163 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+  color: var(--text-color);
+  overflow: hidden;
+  -webkit-app-region: no-drag; /* Electron drag'ı tamamen devre dışı - sadece custom taşıma kullanılacak */
+  user-select: none;
+}
+
+.app-container.settings-open {
+  -webkit-app-region: no-drag;
+}
+
+.app-container.dragging-window,
+.app-content.dragging-window,
+.content-wrapper.dragging-window {
+  -webkit-app-region: no-drag !important;
+}
+
+.right-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+  width: auto;
+  min-width: 40px;
+}
+
+.logo-button {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  user-select: none;
+  position: relative;
+  border-radius: 4px;
+  color: var(--text-color);
+  font-size: 18px;
+  -webkit-app-region: no-drag;
+  pointer-events: auto;
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+  user-drag: none !important;
+  touch-action: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.logo-button:hover {
+  background-color: var(--input-color);
+  opacity: 1;
+}
+
+.logo-button svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* Light temada settings butonu açık renkte görünsün (beyaz arka planda görünür olması için koyu arka plan ve açık renkli SVG) */
+.theme-light .logo-button {
+  background-color: rgba(0, 0, 0, 0.06);
+  color: #ffffff;
+}
+
+.theme-light .logo-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-light .logo-button svg {
+  stroke: #ffffff;
+  opacity: 0.9;
+}
+
+.logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-fallback {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-color);
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.app-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  -webkit-app-region: no-drag; /* Electron drag'ı tamamen devre dışı */
+  background-color: transparent;
+}
+
+.error-message {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  padding: 8px 12px;
+  background-color: rgba(255, 0, 0, 0.6);
+  color: #ffffff;
+  border-radius: 32px;
+  font-size: 12px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  backdrop-filter: blur(4px);
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 20px;
+  overflow: visible;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  user-select: none;
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  -webkit-app-region: no-drag; /* Electron drag'ı tamamen devre dışı */
+}
+
+.settings-button-wrapper {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  -webkit-app-region: no-drag;
+}
+
+.textbox-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+

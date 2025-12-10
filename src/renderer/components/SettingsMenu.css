@@ -1,0 +1,314 @@
+.settings-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20px;
+  z-index: 999;
+  animation: fadeIn 0.2s ease;
+  pointer-events: auto !important;
+  -webkit-app-region: no-drag !important;
+  isolation: isolate;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.settings-menu {
+  position: fixed;
+  top: auto;
+  left: auto;
+  width: 90%;
+  max-width: 520px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  height: auto;
+  max-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.3s ease;
+  pointer-events: auto !important;
+  z-index: 10001;
+  isolation: isolate;
+  overflow: hidden;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.settings-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-color);
+  user-select: none;
+  -webkit-app-region: drag;
+  cursor: move;
+  background-color: var(--bg-color);
+}
+
+.settings-header h2 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 20px;
+  pointer-events: none;
+  text-align: center;
+  grid-column: 2;
+}
+
+.settings-header .close-button {
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  grid-column: 3;
+  justify-self: end;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  -webkit-app-region: no-drag !important;
+  pointer-events: auto !important;
+}
+
+.close-button:hover {
+  background-color: var(--input-color);
+}
+
+.settings-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 16px;
+}
+
+.settings-tabs button {
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  color: var(--text-color);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  font-size: 13px;
+  font-weight: 500;
+  -webkit-app-region: no-drag !important;
+  pointer-events: auto !important;
+}
+
+.settings-tabs button:hover {
+  background-color: var(--input-color);
+}
+
+.settings-tabs button.active {
+  border-bottom-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.settings-content {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
+  -webkit-app-region: no-drag;
+  min-height: 0;
+  max-height: calc(100vh - 300px);
+}
+
+.settings-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.settings-content::-webkit-scrollbar-track {
+  background: var(--input-color);
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.settings-content::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 5px;
+}
+
+.settings-content::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+  opacity: 0.7;
+}
+
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: visible;
+  overflow-y: visible;
+  overflow-x: visible;
+}
+
+.setting-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.setting-item label {
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.setting-item input[type="text"],
+.setting-item input[type="number"],
+.setting-item input[type="password"],
+.setting-item select {
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--input-color);
+  color: var(--text-color);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  -webkit-app-region: no-drag;
+  pointer-events: auto !important;
+  cursor: text;
+}
+
+.setting-item input:focus,
+.setting-item select:focus {
+  border-color: var(--accent-color);
+}
+
+.setting-item input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  pointer-events: auto;
+}
+
+.setting-item small {
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+.setting-item button {
+  padding: 6px 12px;
+  background-color: var(--button-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+  -webkit-app-region: no-drag !important;
+  pointer-events: auto !important;
+}
+
+.setting-item button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.about-content {
+  color: var(--text-color);
+  font-size: 10px;
+}
+
+.about-content h3 {
+  margin-top: 0;
+  color: var(--accent-color);
+}
+
+.about-content ul {
+  padding-left: 20px;
+}
+
+.about-content li {
+  margin-bottom: 8px;
+}
+
+.settings-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px;
+  border-top: 1px solid var(--border-color);
+  -webkit-app-region: no-drag;
+  flex-shrink: 0;
+}
+
+.cancel-button,
+.save-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  -webkit-app-region: no-drag !important;
+  pointer-events: auto !important;
+}
+
+.cancel-button {
+  background-color: var(--input-color);
+  color: var(--text-color);
+}
+
+.cancel-button:hover {
+  background-color: var(--border-color);
+}
+
+.save-button {
+  background-color: var(--button-color);
+  color: var(--bg-color);
+}
+
+.save-button:hover {
+  background-color: var(--button-hover-color);
+}
+

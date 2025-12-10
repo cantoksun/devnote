@@ -1,0 +1,29 @@
+appId: com.devnote.app
+productName: Dev Note
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - node_modules/**/*
+  - package.json
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: assets/icon.ico
+mac:
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+  icon: assets/icon.icns
+  category: public.app-category.developer-tools
+  hardenedRuntime: true
+  gatekeeperAssess: false
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+
