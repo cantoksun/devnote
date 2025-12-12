@@ -1,6 +1,6 @@
 # devnote
 electron-based, **offline speech recognition** and **online ai-powered** **speech-to-text** application
-![Uploading intro.gif…]()
+![intro](https://github.com/cantoksun/devnote/blob/main/public/intro.gif?raw=1)
 
 ## 🚀 features
 
